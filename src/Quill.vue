@@ -120,6 +120,16 @@
 
                 this.editor.root.innerHTML = html
             })
+
+            this.$nextTick(() => {
+                const selectors = ['button', '.ql-picker-label', '.ql-picker-item']
+                const toolbar = this.$el.querySelector('.ql-toolbar')
+                selectors.forEach((selector) => {
+                    toolbar.querySelectorAll(selector).forEach((element) => {
+                        element.tabIndex = -1
+                    })
+                })
+            })
         },
 
         methods: {
