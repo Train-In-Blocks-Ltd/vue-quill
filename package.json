@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/CroudSupport/vue-quill#readme",
   "dependencies": {
-    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.defaultsdeep": "^4.17.19",
     "quill": "^1.3.0",
     "quill-render": "^1.0.5"
   }
