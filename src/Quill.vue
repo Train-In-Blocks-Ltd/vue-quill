@@ -12,7 +12,7 @@
   import * as mobileView from 'quill-mobile-view'
   import { ImageDrop } from 'quill-image-drop-module'
   import 'quill/dist/quill.snow.css'
-  import 'quill-mobile-view/dist/quill-mobile-view.css'
+  import 'quill-mobile-view/dist/quill-mobile-view.min.css'
 
   export default {
       model: {
