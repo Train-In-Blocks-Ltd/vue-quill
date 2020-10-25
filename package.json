@@ -1,6 +1,6 @@
 {
   "name": "vue-quill",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Vue quill component and filter",
   "main": "vue-quill.js",
   "browserify": {
@@ -33,6 +33,8 @@
   "dependencies": {
     "lodash.defaultsdeep": "^4.6.1",
     "quill": "^1.3.0",
+    "quill-image-compress": "^1.2.11",
+    "quill-mobile-view": "^1.0.5",
     "quill-render": "git+https://github.com/Train-In-Blocks-Ltd/quill-render.git"
   }
 }
