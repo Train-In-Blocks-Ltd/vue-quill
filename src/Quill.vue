@@ -1,3 +1,64 @@
+<style>
+  div.ql-container {
+    font-size: 16px
+  }
+  .ui.attached.segment.ql-container.ql-snow {
+    border: none
+  }
+  .ql-toolbar.ql-snow {
+    padding: 0;
+    border: none
+  }
+  .ql-toolbar.ql-snow button {
+    padding-left: 0
+  }
+  .ql-editor {
+    grid-area: body;
+    color: #282828;
+    overflow-y: auto;
+    padding: 0;
+    transition: all 1s
+  }
+  .ql-snow .ql-editor img {
+    max-width: 60%
+  }
+  div.ql-editor h1 {
+    margin: 1.072rem 0
+  }
+  div.ql-editor h2 {
+    margin: 1.245rem 0
+  }
+  div.ql-editor p {
+    margin: 1rem 0
+  }
+  .ql-editor.ql-blank:before {
+    margin: 1rem 0;
+    left: 0
+  }
+  @media (max-width: 768px) {
+    .ql-toolbar.ql-snow {
+      border: none;
+      padding: .4rem .6rem .4rem .6rem;
+      position: fixed;
+      top: 25%;
+      right: 0;
+      border-radius: 3px;
+      background-color: #F4F4F4;
+      z-index: 2
+    }
+    .ql-toolbar.ql-snow .ql-formats {
+      display: grid;
+      margin: 0
+    }
+    .ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button {
+      margin: .2rem 0
+    }
+    .ql-editor img {
+      max-width: 100%
+    }
+  }
+</style>
+
 <template>
   <div>
     <div class="ui attached segment" ref="quill" @click.prevent="focusEditor"></div>
@@ -9,10 +70,8 @@
   import Quill from 'quill'
   import GrammarlyInline from './formats/GrammarlyInline'
   import ImageCompress from 'quill-image-compress'
-  import * as mobileView from 'quill-mobile-view'
   import { ImageDrop } from 'quill-image-drop-module'
   import 'quill/dist/quill.snow.css'
-  import 'quill-mobile-view/dist/quill-mobile-view.min.css'
 
   export default {
       model: {
@@ -54,24 +113,22 @@
       data() {
           return {
               editor: {},
+              placeholder: 'Type away...',
               defaultConfig: {
                   modules: {
-                    imageCompress: {
-                      quality: 0.5, // default
-                      maxWidth: 500, // default
-                      maxHeight: 500, // default
-                      imageType: 'image/jpeg', // default
-                      debug: true
-                    },
-                    quillMobileView: {},
                     imageDrop: true,
+                    imageCompress: {
+                      quality: 0.7,
+                      maxWidth: 500,
+                      maxHeight: 500,
+                      imageType: 'image/jpeg',
+                      debug: false
+                    },
+                    clipboard: {
+                      matchVisual: false
+                    },
                     toolbar: [
-                        ['bold', 'italic', 'underline'],
-                        [
-                            { 'list': 'ordered' }, { 'list': 'bullet' }
-                        ],
-                        mobileView.options
-                        [{ 'align': [] }],
+                        ['bold', 'italic', 'underline', {'list': 'ordered'}, {'list': 'bullet'}, { 'list': 'check' }, 'link', 'image']
                     ],
                   },
                   theme: 'snow',
