@@ -156,7 +156,6 @@
 
           Quill.register(GrammarlyInline)
           Quill.register('modules/imageCompress', ImageCompress)
-          Quill.register('modules/quillMobileView', mobileView.module)
           Quill.register('modules/imageDrop', ImageDrop)
 
           this.editor = new Quill(this.$refs.quill, defaultsDeep(this.config, this.defaultConfig))
